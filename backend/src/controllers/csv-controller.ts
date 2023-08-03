@@ -8,18 +8,45 @@ export default class CSVController {
     this.csvService = new CSVService()
   }
 
-  async add(req: Request, res: Response): Promise<void> {
+  async load(request: Request, response: Response): Promise<void> {
     try {
+      if (!request.file) {
+        response.status(400).send({
+          message: "sending a csv file is required",
+        })
+      }
+
+      if (!this.csvService) {
+        this.csvService = new CSVService()
+      }
+
+      const { file } = request
+
+      const csvUploaded = await this.csvService.load(file)
+
+      response.status(200).json(csvUploaded)
 
     } catch (err) {
-
+      response.status(400).json({
+        message: err.message,
+      })
     }
   }
 
-  async list(req: Request, res: Response): Promise<void> {
+  async list(request: Request, response: Response): Promise<void> {
     try {
+      if (!this.csvService) {
+        this.csvService = new CSVService()
+      }
 
+      const users = await this.csvService.list()
+
+      response.status(200).json(users)
     } catch (err) {
+      console.log(err)
+      response.status(400).json({
+        message: err.message,
+      })
     }
   }
 
