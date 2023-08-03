@@ -34,8 +34,9 @@ export default class CSVService {
         favorite_sport: lineSplit[3]
       })
     }
-
-    users.shift()
+    if (users[0].name === 'name') {
+      users.shift()
+    }
     return await this.csvRepository.create(users)
   }
 
