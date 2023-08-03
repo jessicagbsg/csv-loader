@@ -1,5 +1,6 @@
 import { prismaClient } from "../prisma/prismaClient"
 import { User } from "../../models/project-types"
+import { UserFilters } from "../../shared/types"
 
 export default class CSVRepository {
   async create(users: User[]): Promise<void> {
@@ -17,9 +18,24 @@ export default class CSVRepository {
     }
   }
 
-  async list() {
+  async list(filters?: UserFilters) {
+    const { name, city, country, favorite_sport } = filters
     try {
       return prismaClient.user.findMany({
+        where: {
+          name: {
+            contains: name
+          },
+          city: {
+            contains: city
+          },
+          country: {
+            contains: country
+          },
+          favorite_sport: {
+            contains: favorite_sport
+          },
+        },
         orderBy: [
           {
             id: "desc",

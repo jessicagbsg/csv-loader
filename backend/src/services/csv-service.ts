@@ -2,6 +2,7 @@ import { Readable } from "stream";
 import CSVRepository from "../db/repositories/csv-repository"
 import readLine from "readline";
 import { User } from "../models/project-types"
+import { UserFilters } from "../shared/types";
 
 export default class CSVService {
   csvRepository: CSVRepository
@@ -38,7 +39,7 @@ export default class CSVService {
     return await this.csvRepository.create(users)
   }
 
-  async list() {
-    return this.csvRepository.list()
+  async list(filters?: UserFilters) {
+    return this.csvRepository.list(filters)
   }
 }

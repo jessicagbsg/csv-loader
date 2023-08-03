@@ -1,5 +1,6 @@
 import { Request, Response } from "express"
 import CSVService from "../services/csv-service"
+import { UserFilters } from "../shared/types"
 
 export default class CSVController {
   csvService: CSVService
@@ -39,7 +40,9 @@ export default class CSVController {
         this.csvService = new CSVService()
       }
 
-      const users = await this.csvService.list()
+      const filters: UserFilters = request.query
+
+      const users = await this.csvService.list(filters)
 
       response.status(200).json(users)
     } catch (err) {
