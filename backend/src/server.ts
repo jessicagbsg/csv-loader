@@ -1,8 +1,3 @@
-import express from 'express';
-import { router } from './routes';
+import app from "./app"
 
-const app = express();
-
-app.use(router)
-
-app.listen(3000, () => console.log('Server is running'));
+app.listen(3000, () => console.log(`Server running at http://localhost:3000`))
