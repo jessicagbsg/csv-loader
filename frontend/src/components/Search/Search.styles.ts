@@ -6,6 +6,10 @@ export const SearchContainer = styled.div`
   justify-content: space-between;
   text-align: center;
   gap: 1rem;
+  width: 100%;
+  @media (max-width: 680px) {
+    overflow-x: auto;
+  }
 `
 
 export const SearchInput = styled.input`
@@ -21,6 +25,7 @@ export const SearchInput = styled.input`
   &:focus{
     outline: 1px solid var(--primary);
   }
+ 
 `
 
 export const SearchText = styled.p`
