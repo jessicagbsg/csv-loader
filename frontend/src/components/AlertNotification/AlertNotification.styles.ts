@@ -9,6 +9,9 @@ export const AlertNotificationContainer = styled.div<{ type: IAlertNotificaiton[
   padding: 0 4rem;
   display: flex;
   align-items: center;
+  z-index: 10;
+  position: absolute;
+  bottom: 1rem;
 `
 export const AlertNotificationMessage = styled.p`
   margin-left: 1rem;

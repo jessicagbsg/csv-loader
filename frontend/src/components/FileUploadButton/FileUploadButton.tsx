@@ -13,6 +13,7 @@ export const FileUploadButton = ({ onChange, onClick }: Props) => {
 
       <input
         type="file"
+        accept=".csv"
         ref={inputRef}
         onChange={onChange}
       />
