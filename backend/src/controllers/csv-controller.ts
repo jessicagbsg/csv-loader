@@ -26,7 +26,7 @@ export default class CSVController {
       const csvUploaded = await this.csvService.load(file)
 
       response.status(200).json(csvUploaded)
-
+      return csvUploaded
     } catch (err) {
       response.status(400).json({
         message: err.message,

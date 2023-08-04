@@ -1,15 +1,15 @@
 import axios from 'axios'
-import { User } from './types';
+import type { IUser, IFilters } from '../types';
 
 export const httpClient = axios.create({
   baseURL: "http://localhost:3000/api/",
 });
 
-export async function createUser(file: File) {
+export async function loadFile(file: File) {
   const formData = new FormData();
   formData.append("file", file);
 
-  const response = await httpClient.post<File>("/load", formData, {
+  const response = await httpClient.post<File>("/files", formData, {
     headers: {
       "Content-Type": "multipart/form-data",
     },
@@ -18,13 +18,10 @@ export async function createUser(file: File) {
   return response.data;
 }
 
-export async function listUsers(name?: string, city?: string, country?: string, favorite_sport?: string) {
-  const response = await httpClient.get<User[]>('/users', {
+export async function listUsers(filters?: IFilters) {
+  const response = await httpClient.get<IUser[]>('/users', {
     params: {
-      name: name,
-      city: city,
-      country: country,
-      favorite_sport: favorite_sport
+      ...filters
     }
   });
   return response.data;

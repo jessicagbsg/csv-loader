@@ -1,4 +1,17 @@
 :root {
+  --background: #EDEDED;
+  --background-light: #fcfcfc;
+  --background-secondary: #ccc;
+  --success-primary: #23b54f;
+  --success-secondary: #def7e5;
+  --error-primary: #DC3546;
+  --error-secondary: #f5dde0;
+  --warning-primary: #c79f00;
+  --warning-secondary: #fff4d4;
+  --primary: #892CDC;
+  --secondary: #BC6FF1;
+  --text-primary: #171717;
+  --text-secondary: #444444;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -27,8 +40,9 @@ html {
 }
 
 body {
+  background-color: var(--background);
   display: flex;
-  padding: 0;
+  justify-content: center;
   margin: 0;
   width: 100vw;
   height: 100vh;

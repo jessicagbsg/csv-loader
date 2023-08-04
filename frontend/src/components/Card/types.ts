@@ -1,5 +1,5 @@
-export type User = {
-  id?: string
+
+export interface ICard {
   name: string
   city: string
   country: string
