@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SearchContainer, SearchInput, SearchText } from "./Search.styles";
 
+import { SearchContainer, SearchInput, SearchText } from "./Search.styles";
 import type { IFilters } from "../../types";
 
 interface Props {

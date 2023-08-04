@@ -2,7 +2,6 @@ import { ChangeEvent, useCallback, useEffect, useState } from 'react'
 
 import { listUsers, loadFile } from '../api'
 import { AlertNotification, Card, FileUploadButton, Search } from '../components'
-
 import { CardsContainer, Container, TopContainer } from './Layout.styles'
 
 import type { IFilters, IUser } from '../types'

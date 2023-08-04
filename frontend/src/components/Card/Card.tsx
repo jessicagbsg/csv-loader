@@ -1,5 +1,5 @@
 import { CardContainer, CardTitle, CardText } from "./Card.styles";
-import { ICard } from "./types";
+import type { ICard } from "./types";
 
 export function Card({ name, city, country, favorite_sport }: ICard) {
   return (

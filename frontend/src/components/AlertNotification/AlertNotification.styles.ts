@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { IAlertNotificaiton } from "./types";
+import type { IAlertNotificaiton } from "./types";
 
 export const AlertNotificationContainer = styled.div<{ type: IAlertNotificaiton['type'] }>`
   background-color: ${({ type }) => { if (type === 'success') { return 'var(--success-secondary)' } else if (type === 'warning') { return 'var(--warning-secondary)' } else { return 'var(--error-secondary)' } }};
