@@ -4,11 +4,14 @@ import CSVRepository from './csv-repository';
 
 let mockCtx: MockContext;
 let ctx: Context;
+let mockCreate: jest.SpyInstance;
 
 beforeEach(() => {
   mockCtx = createMockContext();
   ctx = mockCtx as unknown as Context;
+  mockCreate = jest.spyOn(prismaClient.user, 'create').mockResolvedValue(undefined);
 });
+
 
 describe('CSVRepository', () => {
   afterEach(() => {
@@ -24,7 +27,6 @@ describe('CSVRepository', () => {
         { name: 'Alice', city: 'Smith', country: 'UK', favorite_sport: 'Tennis' },
       ];
 
-      jest.spyOn(prismaClient.user, 'create').mockResolvedValue(undefined);
       await repository.create(users);
 
       expect(prismaClient.user.create).toHaveBeenCalledTimes(2);
