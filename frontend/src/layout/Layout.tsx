@@ -18,10 +18,6 @@ export const Layout = () => {
     }
   };
 
-  const handleFilters = (filters: IFilters) => {
-    setFilters(filters)
-  }
-
   const handleListUsers = useCallback(async () => {
     const response = await listUsers()
     setUsers(response)
@@ -39,10 +35,15 @@ export const Layout = () => {
     await handleListUsers()
   }, [file])
 
-  const handleListUsersWithFilters = useCallback(async () => {
-    const response = await listUsers(filters)
-    setUsers(response)
-  }, [])
+  const handleListUsersWithFilters = useCallback(async (updatedFilters: IFilters) => {
+    setFilters(updatedFilters);
+    try {
+      const response = await listUsers(updatedFilters);
+      setUsers(response);
+    } catch (error) {
+      <AlertNotification message="Something went wrong" type='error' />
+    }
+  }, []);
 
   useEffect(() => {
     handleListUsers()

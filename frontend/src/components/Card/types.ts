@@ -1,4 +1,3 @@
-
 export interface ICard {
   name: string
   city: string

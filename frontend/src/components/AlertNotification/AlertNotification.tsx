@@ -1,10 +1,10 @@
+import { useEffect, useState } from 'react'
 import { LuAlertCircle } from 'react-icons/lu'
 import { BiCheckCircle } from 'react-icons/bi'
 import { AiOutlineCloseCircle } from 'react-icons/ai'
 
 import { AlertNotificationContainer, AlertNotificationMessage } from "./AlertNotification.styles"
 import type { IAlertNotificaiton } from "./types"
-import { useEffect, useState } from 'react'
 
 export const AlertNotification = ({ type, message }: IAlertNotificaiton) => {
   const [showAlert, setShowAlert] = useState<boolean>(false)
