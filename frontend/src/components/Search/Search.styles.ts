@@ -6,8 +6,9 @@ export const SearchContainer = styled.div`
   justify-content: space-between;
   text-align: center;
   gap: 1rem;
-  width: 100%;
+  width: fit-content;
   @media (max-width: 680px) {
+    width:  100%;
     overflow-x: auto;
   }
 `
