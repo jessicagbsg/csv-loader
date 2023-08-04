@@ -46,7 +46,6 @@ export default class CSVController {
 
       response.status(200).json(users)
     } catch (err) {
-      console.log(err)
       response.status(400).json({
         message: err.message,
       })
