@@ -1,9 +1,4 @@
 # csv-loader
-
-# CSV Loader-JessicaGondim
- 
- This project was developed to complete a "take home"test for Shaw and Partners.
- 
  
 ## CSV Loader Project
 
